@@ -23,15 +23,8 @@ function printBoard(){
 
 // function to generate a random tile on our board
 function generatedRandomTile() {
-    // Create empty array 'emptyCells'
-    // Iterate throguh the board
-        // If board at the cell is 0
-            // Add cell coordinates to emptyCells
-    // We use Math.random() to choose a random index in the emptyCells array
-    // Using the random index, choose a random cell coordinate
-    // Insert a new tile into the empty cell
-    // Using the random cell coordinate, insert new title into our game board
 
+    // Finding all of the empty cells in the board
     let emptyCells = [];
     for (let y = 0; y < BOARD_SIZE; y++){
         for (let x = 0; x < BOARD_SIZE; x++){
@@ -44,9 +37,13 @@ function generatedRandomTile() {
             }
         }
     }
-    let randomCellIndex = Math.floor(Math.random() * emptyCells.length)
-    let randomCellCoordinate = emptyCells[randomCellIndex];
-    board[randomCellCoordinate.y][randomCellCoordinate.x] = Math.random() < 0.9 ? 2 : 4;    
+    // Only choose a random cell if therea re empty cells 
+    if (emptyCells.length > 0){
+        let randomCellIndex = Math.floor(Math.random() * emptyCells.length)
+        let randomCellCoordinate = emptyCells[randomCellIndex];
+        // 90% chance for a 2, and a 10% chance for a 4 for our new random tile
+        board[randomCellCoordinate.y][randomCellCoordinate.x] = Math.random() < 0.9 ? 2 : 4;
+    }
 }
 
 function main(){
