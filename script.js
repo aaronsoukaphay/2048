@@ -49,6 +49,7 @@ function generatedRandomTile() {
 function main(){
     initializeBoard()
     generatedRandomTile()
+    generatedRandomTile()
     printBoard()
 }
 
